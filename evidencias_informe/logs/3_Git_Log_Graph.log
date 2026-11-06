@@ -1,0 +1,21 @@
+* 38e8df4 Agrega modulo Owner (DTO, mapper, repositorio, excepcion, servicio y controlador REST /owners) y OwnerControllerTest con 7 pruebas de integracion en H2
+| *   cb208f0 Merge pull request #3 from josedev123-eng/rama-karim
+| |\  
+| | * ac1581e Agrega VetControllerTest con las pruebas de integración de listar, buscar por id, buscar uno que no existe, crear, actualizar, eliminar y eliminar uno que no existe en /vets
+| | * 908ec6d Crea VetDTO, VetMapper, VetRepository, VetService y VetController con los endpoints de /vets para listar, buscar, crear, actualizar y eliminar veterinarios, y agrega a la entidad Vet los campos email, phone y active
+| * |   62cc63e Merge pull request #2 from josedev123-eng/rama-edu
+| |\ \  
+| |/ /  
+|/| /   
+| |/    
+* | c9f7e85 Agrega OwnerControllerTest con las pruebas de integración de listar, buscar por id, buscar uno que no existe, crear, actualizar, eliminar y eliminar uno que no existe en /owners
+* | b901c6e Crea OwnerDTO, OwnerMapper, OwnerRepository, OwnerService y OwnerController con los endpoints de /owners para listar, buscar, crear, actualizar y eliminar dueños
+|/  
+*   07e3a80 Merge pull request #1 from josedev123-eng/rama-jose
+|\  
+| * 9f9c419 Agrega VisitControllerTest con las pruebas de integración de listar, buscar por id, buscar una que no existe, crear, actualizar, eliminar y eliminar una que no existe en /visits
+| * e4d480d Crea VisitDTO, VisitMapper, VisitRepository, VisitService y VisitController con los endpoints de /visits para listar, buscar, crear, actualizar y eliminar visitas, y agrega a la entidad Visit los campos vetId y cost
+| * 840c695 Agrega SpecialtyControllerTest con las pruebas de integración de listar, buscar por id, buscar uno que no existe, crear, actualizar, eliminar y eliminar uno que no existe en /specialties
+| * ec76e1e Crea SpecialtyDTO, SpecialtyMapper, SpecialtyRepository, SpecialtyService y SpecialtyController con los endpoints de /specialties para listar, buscar, crear, actualizar y eliminar especialidades, y agrega a la entidad Specialty los campos office, openHour y closeHour
+|/  
+* c1c8f9e Sube el proyecto base petclinic_integration_test del profesor con la entidad Pet, su controlador y la prueba PetControllerTest como punto de partida del laboratorio 12
