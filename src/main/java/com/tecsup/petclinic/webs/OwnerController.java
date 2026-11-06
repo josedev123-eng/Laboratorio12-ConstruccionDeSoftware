@@ -1,9 +1,7 @@
 package com.tecsup.petclinic.webs;
 
 import com.tecsup.petclinic.dtos.OwnerDTO;
-import com.tecsup.petclinic.entities.Owner;
 import com.tecsup.petclinic.exceptions.OwnerNotFoundException;
-import com.tecsup.petclinic.mapper.OwnerMapper;
 import com.tecsup.petclinic.services.OwnerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -14,122 +12,115 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 /**
+ * Controlador REST para la entidad Owner.
  *
- * @author egalindo
- *
+ * @author jgomezm
  */
 @RestController
+@RequestMapping("/owners")
 @Slf4j
 public class OwnerController {
 
-	private OwnerService ownerService;
+    private final OwnerService ownerService;
 
-	private OwnerMapper mapper;
+    public OwnerController(OwnerService ownerService) {
+        this.ownerService = ownerService;
+    }
 
-	public OwnerController(OwnerService ownerService, OwnerMapper mapper) {
-		this.ownerService = ownerService;
-		this.mapper = mapper;
-	}
+    /**
+     * Get all owners
+     *
+     * @return lista de owners
+     */
+    @GetMapping
+    public ResponseEntity<List<OwnerDTO>> findAllOwners() {
 
-	/**
-	 * Get all owners
-	 *
-	 * @return
-	 */
-	@GetMapping(value = "/owners")
-	public ResponseEntity<List<OwnerDTO>> findAllOwners() {
+        List<OwnerDTO> owners = ownerService.findAll();
+        log.info("owners: {}", owners);
 
-		List<Owner> owners = ownerService.findAll();
-		owners.forEach(item -> log.info("Owner >>  {} ", item));
+        return ResponseEntity.ok(owners);
+    }
 
-		List<OwnerDTO> ownersTO = this.mapper.mapToDtoList(owners);
+    /**
+     * Find owner by id
+     *
+     * @param id identificador del owner
+     * @return owner encontrado o 404
+     */
+    @GetMapping("/{id}")
+    public ResponseEntity<OwnerDTO> findById(@PathVariable Long id) {
 
-		return ResponseEntity.ok(ownersTO);
-	}
+        try {
+            return ResponseEntity.ok(ownerService.findById(id));
+        } catch (OwnerNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
-	/**
-	 * Create owner
-	 *
-	 * @param ownerTO
-	 * @return
-	 */
-	@PostMapping(value = "/owners")
-	ResponseEntity<OwnerDTO> create(@RequestBody OwnerDTO ownerTO) {
+    /**
+     * Create owner
+     *
+     * @param ownerDTO datos del owner
+     * @return owner creado con 201
+     */
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<OwnerDTO> create(@RequestBody OwnerDTO ownerDTO) {
 
-		OwnerDTO newOwnerTO = ownerService.create(ownerTO);
+        OwnerDTO newOwner = ownerService.create(ownerDTO);
 
-		return ResponseEntity.status(HttpStatus.CREATED).body(newOwnerTO);
-	}
+        return ResponseEntity.status(HttpStatus.CREATED).body(newOwner);
+    }
 
-	/**
-	 * Find owner by id
-	 *
-	 * @param id
-	 * @return
-	 */
-	@GetMapping(value = "/owners/{id}")
-	ResponseEntity<OwnerDTO> findById(@PathVariable Integer id) {
+    /**
+     * Update owner
+     *
+     * @param ownerDTO datos del owner
+     * @param id identificador del owner
+     * @return owner actualizado o 404
+     */
+    @PutMapping("/{id}")
+    public ResponseEntity<OwnerDTO> update(@RequestBody OwnerDTO ownerDTO, @PathVariable Long id) {
 
-		OwnerDTO ownerDto = null;
+        try {
 
-		try {
-			ownerDto = ownerService.findById(id);
-		} catch (OwnerNotFoundException e) {
-			return ResponseEntity.notFound().build();
-		}
-		return ResponseEntity.ok(ownerDto);
-	}
+            OwnerDTO updateOwner = ownerService.findById(id);
 
-	/**
-	 * Update owner
-	 *
-	 * @param ownerTO
-	 * @param id
-	 * @return
-	 */
-	@PutMapping(value = "/owners/{id}")
-	ResponseEntity<OwnerDTO> update(@RequestBody OwnerDTO ownerTO, @PathVariable Integer id) {
+            updateOwner.setFirstName(ownerDTO.getFirstName());
+            updateOwner.setLastName(ownerDTO.getLastName());
+            updateOwner.setAddress(ownerDTO.getAddress());
+            updateOwner.setCity(ownerDTO.getCity());
+            updateOwner.setTelephone(ownerDTO.getTelephone());
 
-		OwnerDTO updateOwnerDto = null;
+            return ResponseEntity.ok(ownerService.update(updateOwner));
 
-		try {
-			updateOwnerDto = ownerService.findById(id);
+        } catch (OwnerNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
-			updateOwnerDto.setFirstName(ownerTO.getFirstName());
-			updateOwnerDto.setLastName(ownerTO.getLastName());
-			updateOwnerDto.setAddress(ownerTO.getAddress());
-			updateOwnerDto.setCity(ownerTO.getCity());
-			updateOwnerDto.setTelephone(ownerTO.getTelephone());
+    /**
+     * Delete owner by id
+     *
+     * @param id identificador del owner
+     * @return mensaje de confirmación o 404
+     */
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> delete(@PathVariable Long id) {
 
-			ownerService.update(updateOwnerDto);
-
-		} catch (OwnerNotFoundException e) {
-			return ResponseEntity.notFound().build();
-		}
-
-		return ResponseEntity.ok(updateOwnerDto);
-	}
-
-	/**
-	 * Delete owner by id
-	 *
-	 * @param id
-	 * @return
-	 */
-	@DeleteMapping(value = "/owners/{id}")
-	ResponseEntity<String> delete(@PathVariable Integer id) {
-
-		try {
-			ownerService.delete(id);
-			return ResponseEntity.ok(" Delete ID :" + id);
-		} catch (OwnerNotFoundException e) {
-			return ResponseEntity.notFound().build();
-		}
-	}
+        try {
+            ownerService.delete(id);
+            return ResponseEntity.ok(" Delete ID :" + id);
+        } catch (OwnerNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
 }

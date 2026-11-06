@@ -6,9 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
+ * DTO para la entidad Owner.
  *
- * @author egalindo
- *
+ * @author jgomezm
  */
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,16 +16,16 @@ import lombok.NoArgsConstructor;
 @Builder
 public class OwnerDTO {
 
-	private Integer id;
+    private Long id;
 
-	private String firstName;
+    private String firstName;
 
-	private String lastName;
+    private String lastName;
 
-	private String address;
+    private String address;
 
-	private String city;
+    private String city;
 
-	private String telephone;
+    private String telephone;
 
 }

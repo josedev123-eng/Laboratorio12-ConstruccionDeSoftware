@@ -10,86 +10,74 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
+ * Implementación del servicio de Owner.
  *
- * @author egalindo
- *
+ * @author jgomezm
  */
 @Service
 @Slf4j
 public class OwnerServiceImpl implements OwnerService {
 
-    OwnerRepository ownerRepository;
-    OwnerMapper ownerMapper;
+    private final OwnerRepository ownerRepository;
+    private final OwnerMapper ownerMapper;
 
     public OwnerServiceImpl(OwnerRepository ownerRepository, OwnerMapper ownerMapper) {
         this.ownerRepository = ownerRepository;
         this.ownerMapper = ownerMapper;
     }
 
-    /**
-     *
-     * @param ownerDTO
-     * @return
-     */
     @Override
     public OwnerDTO create(OwnerDTO ownerDTO) {
 
-        Owner newOwner = ownerRepository.save(ownerMapper.mapToEntity(ownerDTO));
+        Owner newOwner = ownerRepository.save(ownerMapper.toEntity(ownerDTO));
 
-        return ownerMapper.mapToDto(newOwner);
+        return ownerMapper.toDTO(newOwner);
     }
 
-    /**
-     *
-     * @param ownerDTO
-     * @return
-     */
     @Override
-    public OwnerDTO update(OwnerDTO ownerDTO) {
+    public OwnerDTO update(OwnerDTO ownerDTO) throws OwnerNotFoundException {
 
-        Owner updateOwner = ownerRepository.save(ownerMapper.mapToEntity(ownerDTO));
+        // Valida que el owner exista antes de actualizar
+        findById(ownerDTO.getId());
 
-        return ownerMapper.mapToDto(updateOwner);
+        Owner updatedOwner = ownerRepository.save(ownerMapper.toEntity(ownerDTO));
+
+        return ownerMapper.toDTO(updatedOwner);
     }
 
-    /**
-     *
-     * @param id
-     * @throws OwnerNotFoundException
-     */
     @Override
-    public void delete(Integer id) throws OwnerNotFoundException {
+    public void delete(Long id) throws OwnerNotFoundException {
 
-        findById(id);
+        OwnerDTO owner = findById(id);
 
-        ownerRepository.deleteById(Long.valueOf(id));
+        ownerRepository.delete(ownerMapper.toEntity(owner));
     }
 
-    /**
-     *
-     * @param id
-     * @return
-     * @throws OwnerNotFoundException
-     */
     @Override
-    public OwnerDTO findById(Integer id) throws OwnerNotFoundException {
+    public OwnerDTO findById(Long id) throws OwnerNotFoundException {
 
-        Optional<Owner> owner = ownerRepository.findById(Long.valueOf(id));
+        Optional<Owner> owner = ownerRepository.findById(id);
 
-        if (!owner.isPresent())
+        if (owner.isEmpty())
             throw new OwnerNotFoundException("Record not found...!");
 
-        return this.ownerMapper.mapToDto(owner.get());
+        return ownerMapper.toDTO(owner.get());
     }
 
-    /**
-     *
-     * @return
-     */
     @Override
-    public List<Owner> findAll() {
-        return ownerRepository.findAll();
+    public List<OwnerDTO> findAll() {
+
+        List<Owner> owners = ownerRepository.findAll();
+
+        owners.forEach(owner -> log.info("Owner >> {}", owner));
+
+        return owners
+                .stream()
+                .map(ownerMapper::toDTO)
+                .collect(Collectors.toList());
     }
+
 }
