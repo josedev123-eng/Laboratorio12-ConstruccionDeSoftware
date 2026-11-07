@@ -1,0 +1,336 @@
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/C:/Users/User/.m2/wrapper/dists/apache-maven-3.9.11/03d7e36a140982eea48e22c1dcac01d8862b2550b2939e09a0809bbc5182a5bc/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< com.tecsup:petclinic >------------------------
+[INFO] Building PetClinic 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco:0.8.13:prepare-agent (default) @ petclinic ---
+[INFO] argLine set to "-javaagent:C:\\Users\\User\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.13\\org.jacoco.agent-0.8.13-runtime.jar=destfile=C:\\Users\\User\\Documents\\web\\laboratorio 11\\Laboratorio12-ConstruccionDeSoftware\\target\\jacoco.exec"
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ petclinic ---
+[INFO] Copying 4 resources from src\main\resources to target\classes
+[INFO] Copying 2 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.0:compile (default-compile) @ petclinic ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 35 source files with javac [debug parameters release 21] to target\classes
+[WARNING] /C:/Users/User/Documents/web/laboratorio 11/Laboratorio12-ConstruccionDeSoftware/src/main/java/com/tecsup/petclinic/mapper/PetMapper.java:[24,13] Unmapped target property: "visits".
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ petclinic ---
+[INFO] skip non existing resourceDirectory C:\Users\User\Documents\web\laboratorio 11\Laboratorio12-ConstruccionDeSoftware\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ petclinic ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 12 source files with javac [debug parameters release 21] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.4:test (default-test) @ petclinic ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.tecsup.petclinic.webs.OwnerControllerTest
+00:30:29.143 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.tecsup.petclinic.webs.OwnerControllerTest]: OwnerControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+00:30:29.495 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.tecsup.petclinic.PetClinicApplication for test class com.tecsup.petclinic.webs.OwnerControllerTest
+00:30:30.243 [main] INFO org.springframework.boot.devtools.restart.RestartApplicationListener -- Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.6)
+
+2026-11-07T00:30:31.085-05:00  INFO 1436 --- [           main] c.t.petclinic.webs.OwnerControllerTest   : Starting OwnerControllerTest using Java 25.0.4.1 with PID 1436 (started by User in C:\Users\User\Documents\web\laboratorio 11\Laboratorio12-ConstruccionDeSoftware)
+2026-11-07T00:30:31.104-05:00  INFO 1436 --- [           main] c.t.petclinic.webs.OwnerControllerTest   : The following 1 profile is active: "h2"
+2026-11-07T00:30:32.928-05:00  INFO 1436 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-07T00:30:33.134-05:00  INFO 1436 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 186 ms. Found 4 JPA repository interfaces.
+2026-11-07T00:30:34.184-05:00  INFO 1436 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-11-07T00:30:34.335-05:00  INFO 1436 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.29.Final
+2026-11-07T00:30:34.431-05:00  INFO 1436 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-11-07T00:30:35.168-05:00  INFO 1436 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-07T00:30:35.235-05:00  INFO 1436 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-11-07T00:30:35.767-05:00  INFO 1436 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2026-11-07T00:30:35.771-05:00  INFO 1436 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-11-07T00:30:35.831-05:00  WARN 1436 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-11-07T00:30:35.877-05:00  INFO 1436 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-07T00:30:38.349-05:00  INFO 1436 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-07T00:30:38.362-05:00  INFO 1436 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-07T00:30:39.499-05:00  WARN 1436 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-11-07T00:30:40.674-05:00  INFO 1436 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:mem:testdb'
+2026-11-07T00:30:40.999-05:00  INFO 1436 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-11-07T00:30:41.000-05:00  INFO 1436 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-07T00:30:41.002-05:00  INFO 1436 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-11-07T00:30:41.087-05:00  INFO 1436 --- [           main] c.t.petclinic.webs.OwnerControllerTest   : Started OwnerControllerTest in 10.869 seconds (process running for 13.865)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (C:\Users\User\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.7\byte-buddy-agent-1.17.7.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+Hibernate: select o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,o1_0.telephone from owners o1_0
+2026-11-07T00:30:42.400-05:00  INFO 1436 --- [           main] c.t.petclinic.services.OwnerServiceImpl  : Owner >> Owner(id=1, firstName=George, lastName=Franklin, address=110 W. Liberty St., city=Madison, telephone=6085551023)
+2026-11-07T00:30:42.401-05:00  INFO 1436 --- [           main] c.t.petclinic.services.OwnerServiceImpl  : Owner >> Owner(id=2, firstName=Betty, lastName=Davis, address=638 Cardinal Ave., city=Sun Prairie, telephone=6085551749)
+2026-11-07T00:30:42.402-05:00  INFO 1436 --- [           main] c.t.petclinic.services.OwnerServiceImpl  : Owner >> Owner(id=3, firstName=Eduardo, lastName=Rodriquez, address=2693 Commerce St., city=McFarland, telephone=6085558763)
+2026-11-07T00:30:42.402-05:00  INFO 1436 --- [           main] c.t.petclinic.services.OwnerServiceImpl  : Owner >> Owner(id=4, firstName=Harold, lastName=Davis, address=563 Friendly St., city=Windsor, telephone=6085553198)
+2026-11-07T00:30:42.403-05:00  INFO 1436 --- [           main] c.t.petclinic.services.OwnerServiceImpl  : Owner >> Owner(id=5, firstName=Peter, lastName=McTavish, address=2387 S. Fair Way, city=Madison, telephone=6085552765)
+2026-11-07T00:30:42.403-05:00  INFO 1436 --- [           main] c.t.petclinic.services.OwnerServiceImpl  : Owner >> Owner(id=6, firstName=Jean, lastName=Coleman, address=105 N. Lake St., city=Monona, telephone=6085552654)
+2026-11-07T00:30:42.403-05:00  INFO 1436 --- [           main] c.t.petclinic.services.OwnerServiceImpl  : Owner >> Owner(id=7, firstName=Jeff, lastName=Black, address=1450 Oak Blvd., city=Monona, telephone=6085555387)
+2026-11-07T00:30:42.403-05:00  INFO 1436 --- [           main] c.t.petclinic.services.OwnerServiceImpl  : Owner >> Owner(id=8, firstName=Maria, lastName=Escobito, address=345 Maple St., city=Madison, telephone=6085557683)
+2026-11-07T00:30:42.403-05:00  INFO 1436 --- [           main] c.t.petclinic.services.OwnerServiceImpl  : Owner >> Owner(id=9, firstName=David, lastName=Schroeder, address=2749 Blackhawk Trail, city=Madison, telephone=6085559435)
+2026-11-07T00:30:42.404-05:00  INFO 1436 --- [           main] c.t.petclinic.services.OwnerServiceImpl  : Owner >> Owner(id=10, firstName=Carlos, lastName=Estaban, address=2335 Independence La., city=Waunakee, telephone=6085555487)
+2026-11-07T00:30:42.406-05:00  INFO 1436 --- [           main] c.tecsup.petclinic.webs.OwnerController  : owners: [OwnerDTO(id=1, firstName=George, lastName=Franklin, address=110 W. Liberty St., city=Madison, telephone=6085551023), OwnerDTO(id=2, firstName=Betty, lastName=Davis, address=638 Cardinal Ave., city=Sun Prairie, telephone=6085551749), OwnerDTO(id=3, firstName=Eduardo, lastName=Rodriquez, address=2693 Commerce St., city=McFarland, telephone=6085558763), OwnerDTO(id=4, firstName=Harold, lastName=Davis, address=563 Friendly St., city=Windsor, telephone=6085553198), OwnerDTO(id=5, firstName=Peter, lastName=McTavish, address=2387 S. Fair Way, city=Madison, telephone=6085552765), OwnerDTO(id=6, firstName=Jean, lastName=Coleman, address=105 N. Lake St., city=Monona, telephone=6085552654), OwnerDTO(id=7, firstName=Jeff, lastName=Black, address=1450 Oak Blvd., city=Monona, telephone=6085555387), OwnerDTO(id=8, firstName=Maria, lastName=Escobito, address=345 Maple St., city=Madison, telephone=6085557683), OwnerDTO(id=9, firstName=David, lastName=Schroeder, address=2749 Blackhawk Trail, city=Madison, telephone=6085559435), OwnerDTO(id=10, firstName=Carlos, lastName=Estaban, address=2335 Independence La., city=Waunakee, telephone=6085555487)]
+Hibernate: insert into owners (address,city,first_name,last_name,telephone,id) values (?,?,?,?,?,default)
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /owners
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"123"]
+             Body = {"id":null,"firstName":"Eduardo","lastName":"Rodriguez","address":"Av. Arequipa 123","city":"Lima","telephone":"987654321"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.tecsup.petclinic.webs.OwnerController
+           Method = com.tecsup.petclinic.webs.OwnerController#create(OwnerDTO)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":11,"firstName":"Eduardo","lastName":"Rodriguez","address":"Av. Arequipa 123","city":"Lima","telephone":"987654321"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Hibernate: insert into owners (address,city,first_name,last_name,telephone,id) values (?,?,?,?,?,default)
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /owners
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"123"]
+             Body = {"id":null,"firstName":"Eduardo","lastName":"Rodriguez","address":"Av. Arequipa 123","city":"Lima","telephone":"987654321"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.tecsup.petclinic.webs.OwnerController
+           Method = com.tecsup.petclinic.webs.OwnerController#create(OwnerDTO)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":12,"firstName":"Eduardo","lastName":"Rodriguez","address":"Av. Arequipa 123","city":"Lima","telephone":"987654321"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Hibernate: select o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,o1_0.telephone from owners o1_0 where o1_0.id=?
+Hibernate: select o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,o1_0.telephone from owners o1_0 where o1_0.id=?
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /owners/1
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.tecsup.petclinic.webs.OwnerController
+           Method = com.tecsup.petclinic.webs.OwnerController#findById(Long)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":1,"firstName":"George","lastName":"Franklin","address":"110 W. Liberty St.","city":"Madison","telephone":"6085551023"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Hibernate: select o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,o1_0.telephone from owners o1_0 where o1_0.id=?
+Hibernate: insert into owners (address,city,first_name,last_name,telephone,id) values (?,?,?,?,?,default)
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /owners
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"123"]
+             Body = {"id":null,"firstName":"Eduardo","lastName":"Rodriguez","address":"Av. Arequipa 123","city":"Lima","telephone":"987654321"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.tecsup.petclinic.webs.OwnerController
+           Method = com.tecsup.petclinic.webs.OwnerController#create(OwnerDTO)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":13,"firstName":"Eduardo","lastName":"Rodriguez","address":"Av. Arequipa 123","city":"Lima","telephone":"987654321"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = PUT
+      Request URI = /owners/13
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"124"]
+             Body = {"id":13,"firstName":"Eduardo","lastName":"Paredes","address":"Av. Javier Prado 456","city":"Surco","telephone":"999888777"}
+    Session Attrs = {}
+
+Handler:
+             Type = com.tecsup.petclinic.webs.OwnerController
+           Method = com.tecsup.petclinic.webs.OwnerController#update(OwnerDTO, Long)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":13,"firstName":"Eduardo","lastName":"Paredes","address":"Av. Javier Prado 456","city":"Surco","telephone":"999888777"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /owners/13
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.tecsup.petclinic.webs.OwnerController
+           Method = com.tecsup.petclinic.webs.OwnerController#findById(Long)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":13,"firstName":"Eduardo","lastName":"Paredes","address":"Av. Javier Prado 456","city":"Surco","telephone":"999888777"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.43 s -- in com.tecsup.petclinic.webs.OwnerControllerTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  27.063 s
+[INFO] Finished at: 2026-11-07T00:30:43-05:00
+[INFO] ------------------------------------------------------------------------
